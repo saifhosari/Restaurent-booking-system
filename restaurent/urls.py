@@ -21,6 +21,8 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('restaurent', include('restaurent_app.urls')),
+    path('authentication', include('authentication.urls')),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

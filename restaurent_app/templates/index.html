@@ -13,7 +13,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_login">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -48,12 +48,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_register">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form>
+            <form id="registration_form">
+                {% csrf_token %}
+                <div class="alert alert-secondary alert_msg" role="alert" style="display: none">
+                   
+                  </div>
             <div class="form-outline">
                 <label class="form-label" for="username">User name</label>
                 <input type="text" id="username" class="form-control" name="username"/>
@@ -64,7 +68,7 @@
                 <input type="email" id="email" class="form-control" name="email" />
               </div>
               <div class="form-outline">
-                <label class="form-label" for="confirm_password">Password</label>
+                <label class="form-label" for="confirm_password">Confirm Password</label>
                 <input type="text" id="confirm_password" class="form-control" name="confirm_password" />
               </div>
               <div class="form-outline">
@@ -74,7 +78,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sign in</button>
+          <button type="submit" class="btn btn-secondary" data-dismiss="modal">Register</button>
         </div>
     </form>
       </div>
@@ -528,12 +532,17 @@
 </div>
 
 {% block external_js%} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+<script src="{% static 'js/register.js'%} "></script>
 <script>
     $('#login_modal').on('click', function(){
         $('#exampleModal').modal('show');
     })
     $('#register_modal').on('click', function(){
         $('#exampleModal1').modal('show');
+    })
+    $('#close_register').on('click', function(){
+        $('#exampleModal1').modal('hide')
     })
     
 </script>

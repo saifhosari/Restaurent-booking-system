@@ -150,7 +150,10 @@
     <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
 
     <!-- Template Javascript -->
-    <script src="{% static 'js/main.js'%} "></script>
-    {%block external_js %} {% endblock %} 
+    
+    {%block external_js %}
+    <script src="{% static 'js/main.js'%} "></script> 
+    </script>
+    {% endblock %} 
 </body>
 </html>
