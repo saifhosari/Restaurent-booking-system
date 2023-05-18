@@ -3,6 +3,85 @@
 <!-- Body of home page -->
 {% block content %}
 
+<!-- Login/Signup Modal -->
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+            <div class="form-outline">
+                <label class="form-label" for="username">User name</label>
+                <input type="text" id="username" class="form-control" name="username"/>
+              </div>
+
+              <div class="form-outline">
+                <label class="form-label" for="password">Password</label>
+                <input type="text" id="password" class="form-control" name="password" />
+              </div>
+            </form>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sign in</button>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+<!-- End Login/Signup-->
+
+
+<!-- Sign up-->
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+            <div class="form-outline">
+                <label class="form-label" for="username">User name</label>
+                <input type="text" id="username" class="form-control" name="username"/>
+              </div>
+
+              <div class="form-outline">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-control" name="email" />
+              </div>
+              <div class="form-outline">
+                <label class="form-label" for="confirm_password">Password</label>
+                <input type="text" id="confirm_password" class="form-control" name="confirm_password" />
+              </div>
+              <div class="form-outline">
+                <label class="form-label" for="password">Password</label>
+                <input type="text" id="password" class="form-control" name="password" />
+              </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sign in</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+<!-- End Login/Signup-->
+<!-- End signup-->
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
     <div class="container my-5 py-5">
         <div class="row align-items-center g-5">
@@ -447,4 +526,17 @@
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 </div>
+
+{% block external_js%} 
+<script>
+    $('#login_modal').on('click', function(){
+        $('#exampleModal').modal('show');
+    })
+    $('#register_modal').on('click', function(){
+        $('#exampleModal1').modal('show');
+    })
+    
+</script>
+
+{% endblock %}
 {% endblock %}
