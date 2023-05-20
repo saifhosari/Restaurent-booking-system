@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 
 from .models import Profile
 
@@ -9,6 +9,7 @@ def register(request):
     if request.method == 'POST':
         print(request.POST)
         try:
+            print(User.objects.all())
             print("=== in try ===")
             user_name = request.POST.get('username')
             password = request.POST.get('password')
@@ -37,21 +38,28 @@ def register(request):
 
     return JsonResponse(context)
 
+
 def login_user(request):
     print("--- in login user----")
     print("POST REQUEST", request.POST)
+    print("User objects")
+    print(User.objects.all())
     context = {}
 
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        
         try:
-            login_user = authenticate(request=request, username=username, password=password)
-            context['developer_msg'] = f'{login_user.username} successfully logged in.'
-            return JsonResponse(context)
-        except Exception as e:
+            login_user_obj = User.objects.get(username=username)
+            login_user_obj = authenticate(request=request, username=username, password=password)
+            if login_user_obj is not None:
+                login(request, login_user_obj) 
+                context['developer_msg'] = f'{login_user_obj.username} successfully logged in.'
+                return JsonResponse(context)
+            
+        except User.DoesNotExist as e:
             print("Exception #", e)
             context['developer_msg'] = f'User with {username} does not exists.'
             return JsonResponse(context)
-
     return JsonResponse(context)
