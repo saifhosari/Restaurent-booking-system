@@ -9,8 +9,20 @@ class Profile(models.Model):
     confirm_password = models.TextField(max_length=500, blank=True)
 
 
+class Guest(models.Model):
+    guest_name = models.CharField(max_length=20, null=True, blank=True)
+    guest_cnic = models.CharField(max_length=20, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.guest_name
+    
 class Table(models.Model):
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
-    table = models.IntegerField(max_length=3,  default=0, null=True)
-    
-    
+    table = models.ManyToManyField(Guest)
+
+
+class Booking(models.Model):
+    table = models.ManyToManyField(Table)
+    registered_with = models.OneToOneField(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
