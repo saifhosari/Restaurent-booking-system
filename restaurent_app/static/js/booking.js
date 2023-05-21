@@ -27,12 +27,19 @@ $('#booking_form').on('submit', function(event) {
         data: {'guest_names': JSON.stringify(guest_names), 'guest_phone': JSON.stringify(guest_cnic)},
         success: function(response) {
         // Display the response in the target element
-        Swal.fire(
-            `${response.reserved_user}`,
-            `Booked Successfully`,
-            'success'
-          )
-        },
+        if (response.developer_msg){
+            Swal.fire(
+                `${response.developer_msg}`,  
+              )
+            }else{
+                Swal.fire(
+                    `${response.reserved_user}`,
+                    `Booked Successfully`,
+                    'success'
+                  )
+                }
+            },
+    
         error: function(xhr, errmsg, err) {
         // Handle the error if necessary
         }

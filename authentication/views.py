@@ -61,4 +61,4 @@ def login_user(request):
 # Logout user
 def logout_user(request):
     logout(request)
-    return redirect('logout')
+    return render('home_page')
