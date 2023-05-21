@@ -6,6 +6,7 @@
 <!-- Body of home page -->
 {% block content %}
 
+
 <!-- Login/Signup Modal -->
 <!-- Button trigger modal -->
 
@@ -20,6 +21,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
+        
         <div class="modal-body">
             <form id="login_form">
                 {% csrf_token %}
@@ -98,7 +101,7 @@
             <div class="col-lg-6 text-center text-lg-start">
                 <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
                 <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
+                <a href="{% url 'booking' %}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
             </div>
             <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                 <img class="img-fluid" src="{% static 'img/hero.png' %}" alt="">
@@ -550,25 +553,6 @@
 
 {% block external_js%} 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
-<script src="{% static 'js/register.js'%} "></script>
-<script src="{% static 'js/login.js'%} "></script>
-
-<script>
-    $('#login_modal').on('click', function(){
-        $('#exampleModal').modal('show');
-    })
-    $('#register_modal').on('click', function(){
-        $('#exampleModal1').modal('show');
-    })
-    $('#close_register').on('click', function(){
-        $('#exampleModal1').modal('hide')
-    })
-    
-
-    $('#close_login').on('click', function(){
-        $('#exampleModal').modal('hide')
-    })
-</script>
 
 {% endblock %}
 {% endblock %}

@@ -4,7 +4,7 @@
           alert("in login")
         // Submit the form via AJAX using the ajaxSubmit() function
         $(this).ajaxSubmit({
-          url: "/authentication/login",  // Replace 'register' with your actual URL name
+          url: "/login",  // Replace 'register' with your actual URL name
           type: 'POST',
           success: function(response) {
             // Display the response in the target element

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import datetime
 
 # Create your models here.
 class Profile(models.Model):
@@ -18,11 +18,15 @@ class Guest(models.Model):
     
 
 class Table(models.Model):
-    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
-    table = models.ManyToManyField(Guest)
+    table_name = models.CharField(max_length=30, default="default_tables1")
+    profile = models.ForeignKey(User, on_delete=models.CASCADE)
+    guests = models.ManyToManyField(Guest)
 
 
 class Booking(models.Model):
     table = models.ManyToManyField(Table)
     registered_with = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    from_time = models.DateTimeField(default=datetime.datetime.now())
+    to_time = models.DateTimeField(default=datetime.datetime.now())
+    special_request = models.TextField(max_length=400, default="Nothing to Add Special")

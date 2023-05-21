@@ -21,7 +21,7 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('restaurent', include('restaurent_app.urls')),
-    path('authentication', include('authentication.urls')),
+    path('restaurent', include('authentication.urls')),
 
 ]
 

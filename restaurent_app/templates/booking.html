@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %} <title> Booking </title> {% endblock %}
+
+
+{% block content %} 
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container my-5 py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
+                <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <a href="{% url 'booking' %}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                <img class="img-fluid" src="{% static 'img/hero.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+    
+<div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <div class="video">
+                <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6 bg-dark d-flex align-items-center">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
+                <h1 class="text-white mb-4">Book A Table Online</h1>
+                <form id="booking_form"> 
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="reservation_user">
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" name="email">
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating date" id="date3" data-target-input="nearest">
+                                <input type="date" class="form-control datetimepicker-input" id="check_in" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" name="check_in"/>
+                                <label for="datetime">Check in</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating " data-target-input="nearest">
+                                <input type="text" class="form-control" id="time_in" placeholder="Date & Time" name="time_in"/>
+                                <label for="datetime">From</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating " data-target-input="nearest">
+                                <input type="text" class="form-control" id="time_out" placeholder="Date & Time" name="time_out"/>
+                                <label for="datetime">To</label>
+                            </div>
+                        </div>
+                        
+
+                        
+                        <div class="col-md-6" id="no_of_people_div">
+                            <div class="form-floating">
+                                <select class="form-select" id="no_of_people" name="no_of_people">
+                                  <option value="0">Select</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
+                                <label for="select1">No Of People</label>
+                              </div>
+                        </div>
+                    
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-select" id="no_of_tables" name="table_name">
+                                  <option value="Table 1 - Corner">Table 1 - Corner</option>
+                                  <option value="Table 2 - East Side">Table 2 - East Side</option>
+                                  <option value="Table 3 - West Side">Table 3 - West Side</option>
+                                  <option value="Table 4 - South Side">Table 4 - South Side</option>
+                                  <option value="Table 5 - North Side<">Table 5 - North Side</option>
+                                </select>
+                                <label for="select1">Select Table</label>
+                              </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px" name="special_request"></textarea>
+                                <label for="message">Special Request</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 16:9 aspect ratio -->
+                <div class="ratio ratio-16x9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                        allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reservation Start -->
+{% block external_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+<script src="{% static 'js/booking.js' %}"></script>
+<script>
+ var url = "{% url 'booking'%}"
+// make input ~ no of people 
+$('#no_of_people').change(function() {
+    let selectedOption = parseInt($(this).val());
+    let guest_divs = '';
+    $('.guest_div').remove(); // Remove previously generated guest divs
+
+    for (let i = 0; i < selectedOption; i++) {
+        guest_divs += `<div class="form-floating guest_div">
+                            <input type="text" class="form-control guest_name" placeholder="Name" name="guest_names">
+                            <label for="guest${i}">Guest Name #${i + 1}</label>
+                        </div>
+                        <div class="form-floating guest_div">
+                            <input type="text" class="form-control guest_cnic" placeholder="Name" name="guest_cnic">
+                            <label for="guest${i}">Guest Cnic #${i + 1}</label>
+                        </div>
+                        `;
+    }
+    $(guest_divs).insertAfter('#no_of_people_div'); // Insert the new guest divs after the no_of_people_div
+});
+
+$(document).ready(function(){
+    $('#time_in, #time_out').timepicker({});
+});
+</script>
+{% endblock %}
+{% endblock %}
+        <!-- Reservation Start -->
+        
