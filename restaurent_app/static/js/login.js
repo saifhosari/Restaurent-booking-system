@@ -1,7 +1,6 @@
 
     $('#login_form').on('submit', function(event) {
         event.preventDefault();  // Prevent normal form submission
-          alert("in login")
         // Submit the form via AJAX using the ajaxSubmit() function
         $(this).ajaxSubmit({
           url: "/login",  // Replace 'register' with your actual URL name

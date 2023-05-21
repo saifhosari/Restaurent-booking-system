@@ -1,7 +1,6 @@
 
     $('#registration_form').on('submit', function(event) {
       event.preventDefault();  // Prevent normal form submission
-        alert("in register")
       // Submit the form via AJAX using the ajaxSubmit() function
       $(this).ajaxSubmit({
         url: "/authentication/register",  // Replace 'register' with your actual URL name

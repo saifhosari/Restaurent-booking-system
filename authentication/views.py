@@ -10,21 +10,12 @@ from django.shortcuts import redirect
 def register(request):
     context = {}
     if request.method == 'POST':
-        print(request.POST)
         try:
-            print(User.objects.all())
-            print("=== in try ===")
             user_name = request.POST.get('username')
             password = request.POST.get('password')
             email = request.POST.get('email')
             confirm_password = request.POST.get('confirm_password')
-            print("user_name", user_name)
-            print("Password:", password)
-            print("Email", email)
-            print("Confirm Password", confirm_password)
-            print(" == after confirm password ===")
             user_exists = User.objects.get(username=user_name)
-            print(user_exists)
             if user_exists:
                 context['developer_msg'] = f'User name {user_exists.username} already exists'
             elif password == confirm_password:
@@ -44,10 +35,6 @@ def register(request):
 
 # login user
 def login_user(request):
-    print("--- in login user----")
-    print("POST REQUEST", request.POST)
-    print("User objects")
-    print(User.objects.all())
     context = {}
 
     if request.method == 'POST':
@@ -71,6 +58,5 @@ def login_user(request):
 
 # Logout user
 def logout_user(request):
-    print("== in logout ==")
     logout(request)
     return redirect('logout')
