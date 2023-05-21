@@ -20,7 +20,7 @@ def contact_us(request):
 def book_table(request):
     template = 'booking.html'
     context = {}
-    
+
     if request.method == 'POST':
         user = User.objects.get(username=request.user.username)
         table_name = request.POST.get('table_name')
@@ -55,9 +55,5 @@ def book_table(request):
     except Exception as e:
             
         print("Exception #", e)
-
-
-
-        
         
     return render(request, template)

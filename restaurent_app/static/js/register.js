@@ -3,7 +3,7 @@
       event.preventDefault();  // Prevent normal form submission
       // Submit the form via AJAX using the ajaxSubmit() function
       $(this).ajaxSubmit({
-        url: "/authentication/register",  // Replace 'register' with your actual URL name
+        url: register_url,  // Replace 'register' with your actual URL name
         type: 'POST',
         success: function(response) {
           // Display the response in the target element
@@ -13,10 +13,10 @@
             $('.alert_msg').css('display', 'none') 
             
         }, 2000)
-                
             console.log(response)
+            location.href = "/restaurent/"
         },
-        error: function(xhr, errmsg, err) {
+        error: function(response) {
           // Handle the error if necessary
           $('.alert_msg').css('display', 'block')
           $('.alert_msg').html(response.developer_msg) 

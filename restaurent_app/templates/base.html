@@ -50,14 +50,6 @@
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Service</a>
                     <a href="menu.html" class="nav-item nav-link">Menu</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="booking.html" class="dropdown-item">Booking</a>
-                            <a href="team.html" class="dropdown-item">Our Team</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        </div>
-                    </div>
                     <a href="{% url 'contact_us' %}" class="nav-item nav-link">Contact</a>
                 </div>
                 
@@ -151,6 +143,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="{% static 'js/register.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
 
     <script src="{% static 'lib/wow/wow.min.js'}"></script>
     <script src="{% static 'lib/easing/easing.min.js' %}"></script>
@@ -160,7 +154,17 @@
     <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
     <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
     <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-
+    <script>
+        var login_url ="{% url 'login_user' %}"
+        var register_url = "{% url 'register' %}"
+        $('#login_modal').on('click', function(){
+            $('#exampleModal').modal('show');
+        })
+        $('#register_modal').on('click', function(){
+            $('#exampleModal1').modal('show');
+        })
+    
+    </script>
     <!-- Template Javascript -->
     
     {%block external_js %}

@@ -15,17 +15,19 @@ def register(request):
             password = request.POST.get('password')
             email = request.POST.get('email')
             confirm_password = request.POST.get('confirm_password')
-            user_exists = User.objects.get(username=user_name)
-            if user_exists:
-                context['developer_msg'] = f'User name {user_exists.username} already exists'
-            elif password == confirm_password:
-                user_obj = User.objects.create_user(username=user_name, email=email, password=password)
-                user_profile = Profile.objects.create(user=user_obj, confirm_password=confirm_password)
-                user_profile.save()
-                context['developer_msg'] = 'Successfully Registered'
-            else:
-                context['developer_msg'] = 'Your Password does not match'
-                return JsonResponse(context)
+            try:
+                user_exists = User.objects.get(username=user_name)
+                if user_exists:
+                    context['developer_msg'] = f'User name {user_exists.username} already exists'
+            except User.DoesNotExist:
+                if password == confirm_password:
+                    user_obj = User.objects.create_user(username=user_name, email=email, password=password)
+                    user_profile = Profile.objects.create(user=user_obj, confirm_password=confirm_password)
+                    user_profile.save()
+                    context['developer_msg'] = 'Successfully Registered'
+                else:
+                    context['developer_msg'] = 'Your Password does not match'
+                    return JsonResponse(context)
         except Exception as e:
             print("Exception#", e)
             context['developer_msg'] = 'Something went wrong'
