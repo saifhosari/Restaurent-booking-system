@@ -106,16 +106,16 @@
         </div>
     </div>
 
-    {% if not request.user.is_anonymous %}
+    
     <main class="container welcome_container">
         <p id="welcome">Welcome 👋 </p>
         <section class="animation">
-          <div class="first"><div>{{ request.user }}</div></div>
+          <div class="first"><div>{% if not request.user.is_anonymous %} {{ request.user }} {% else%} Guest {% endif %} </div></div>
           <div class="second"><div>Lovely to meet you</div></div>
           <div class="third"><div>Book a table?</div></div>
         </section>
       </main>
-      {% endif %}
+      
 </div>
 
 

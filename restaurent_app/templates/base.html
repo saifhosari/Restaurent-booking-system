@@ -63,9 +63,14 @@
                 <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#exampleModal" id="login_modal">
                     Login
                   </button> 
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" id="register_modal">
+                  <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#exampleModal1" id="register_modal">
                     Register
-                  </button>             
+                  </button>
+                  {% if not request.user.is_anonymous %}
+                  <a href="{% url 'logout_user' %}" class="btn btn-primary">
+                   Logout
+                  </a>    
+                  {% endif %}         
                   </div>
         </nav>
 

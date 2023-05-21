@@ -1,9 +1,12 @@
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import authenticate, login, logout
 from .models import Profile
+from django.shortcuts import redirect
 
+
+
+# Register_user
 def register(request):
     context = {}
     if request.method == 'POST':
@@ -39,6 +42,7 @@ def register(request):
     return JsonResponse(context)
 
 
+# login user
 def login_user(request):
     print("--- in login user----")
     print("POST REQUEST", request.POST)
@@ -63,3 +67,10 @@ def login_user(request):
             context['developer_msg'] = f'User with {username} does not exists.'
             return JsonResponse(context)
     return JsonResponse(context)
+
+
+# Logout user
+def logout_user(request):
+    print("== in logout ==")
+    logout(request)
+    return redirect('logout')
