@@ -10,7 +10,7 @@ class Profile(models.Model):
 
 class Guest(models.Model):
     guest_name = models.CharField(max_length=20, null=True, blank=True)
-    guest_cnic = models.CharField(max_length=20, null=True, blank=True)
+    guest_phone = models.IntegerField(max_length=20, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -25,8 +25,9 @@ class Table(models.Model):
 
 class Booking(models.Model):
     table = models.ManyToManyField(Table)
-    registered_with = models.OneToOneField(User, on_delete=models.CASCADE)
+    registered_with = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     from_time = models.DateTimeField(default=datetime.datetime.now())
     to_time = models.DateTimeField(default=datetime.datetime.now())
+    check_in = models.DateTimeField(default=datetime.datetime.now())
     special_request = models.TextField(max_length=400, default="Nothing to Add Special")

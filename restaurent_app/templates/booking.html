@@ -70,7 +70,7 @@
                         <div class="col-md-6" id="no_of_people_div">
                             <div class="form-floating">
                                 <select class="form-select" id="no_of_people" name="no_of_people">
-                                  <option value="0">Select</option>
+                                  <option value="">Select Guests</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -84,6 +84,7 @@
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-select" id="no_of_tables" name="table_name">
+                                    <option value="">Select a Table</option>  
                                   <option value="Table 1 - Corner">Table 1 - Corner</option>
                                   <option value="Table 2 - East Side">Table 2 - East Side</option>
                                   <option value="Table 3 - West Side">Table 3 - West Side</option>
@@ -99,6 +100,7 @@
                                 <label for="message">Special Request</label>
                             </div>
                         </div>
+                        <div id="errorContainer"></div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
                         </div>
@@ -145,8 +147,8 @@ $('#no_of_people').change(function() {
                             <label for="guest${i}">Guest Name #${i + 1}</label>
                         </div>
                         <div class="form-floating guest_div">
-                            <input type="text" class="form-control guest_cnic" placeholder="Name" name="guest_cnic">
-                            <label for="guest${i}">Guest Cnic #${i + 1}</label>
+                            <input type="text" class="form-control guest_phone" placeholder="Name" name="guest_phone">
+                            <label for="guest${i}">Guest Phone #${i + 1}</label>
                         </div>
                         `;
     }
@@ -156,6 +158,44 @@ $('#no_of_people').change(function() {
 $(document).ready(function(){
     $('#time_in, #time_out').timepicker({});
 });
+
+
+// Form validation 
+
+$("#booking_form").validate({
+   rules: {
+     // no quoting necessary
+     reservation_user: {
+        required: true,
+     },
+     email: {
+        required: true,
+     },
+     check_in:{
+        required: true,
+     },
+     time_in:{
+        required: true,
+     },
+     time_out:{
+        required: true,
+     },
+     no_of_people:{
+        required:true,
+     },
+
+     table_name:{
+        required:true,
+     }
+     
+    
+     
+   }, errorPlacement: function(error, element){
+        var errorContainer = $('<div class="error-container"></div>');
+      errorContainer.append(error);
+      errorContainer.insertAfter(element);
+   }
+ });
 </script>
 {% endblock %}
 {% endblock %}
