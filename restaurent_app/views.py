@@ -29,11 +29,9 @@ def book_table(request):
             time_in = datetime.strptime(request.POST.get('time_in'), '%I:%M %p')
             time_out = datetime.strptime(request.POST.get('time_out'), '%I:%M %p')
             special_req = request.POST.get('special_request')
-            tables = Table.objects.filter(profile=user, table_name=table_name)
-            print(tables)
-            if len(tables) > 1:
-                context['developer_msg'] = 'Table is already booked by you.'
-                return JsonResponse(context)
+            # tables = Table.objects.filter(profile=user, table_name=table_name)
+            # print(tables)
+            
             try:
                 guest_phone = json.loads(request.POST.get('guest_phone'))
                 guest_names = json.loads(request.POST.get('guest_names'))
@@ -59,6 +57,7 @@ def book_table(request):
                 context['no_of_guests'] = len(guests)
                 context['guest_names'] = guest_list
                 context['check_in'] = check_in
+                return JsonResponse(context)
             except Exception as e:    
                 return JsonResponse(context)
 
