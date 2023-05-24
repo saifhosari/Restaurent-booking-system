@@ -40,4 +40,12 @@ Adding many-to-many relationship does not causes redundacy and also the normaliz
 
 This is table between table and booking with their respective ids. The only reason for separate is to not have redundancy in the data.
 
+However, there are few other tables for relationships.
+## DataBase General Diagram 
+
+<img width="1085" alt="Screenshot 2023-05-25 at 1 50 20 am" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/94fbdae1-7322-4440-8052-9d1e3781fc42">
+
+
+
+
 
