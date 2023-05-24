@@ -21,7 +21,8 @@ Welcome to our Restaurant Booking System! Easily register, login, and reserve ta
 User table is used for storing user information.
 
 ### Table 
-<img width="338" alt="Screenshot 2023-05-25 at 12 54 46 am" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/235b8ab3-1467-434b-805c-e356fac7be00">
+<img width="336" alt="Screenshot 2023-05-25 at 12 55 29 am" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/0036ebb3-ed16-4c9b-8d70-ba76f8eb2feb">
+
 
 This Table in this project is used for storing table information against the user.
 * User can book multiple tables that is the reason profile column is foreign key for user.
