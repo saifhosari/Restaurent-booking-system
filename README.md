@@ -82,4 +82,11 @@ An approximation of the agile workflow was used in the development of this proje
   Adding a basic booking info: (registered_with(foreign key), from_time, to_time, tables (Many to Many with table)
   Filtering for booking status will be implemented later.
 
+* Once these features were implemented, a minimum front-end was built. Attention was first paid to basic styling and layout with Bootstrap
+  Adding a navbar and footer
+  Adding responsive layout to the login, logout, animation for restaurent.
+  Displaying the essential information of a book in a Bootstrap card.
+  Placing those cards in responsive rows and columns.
+  Adding menu for restaurent.
+  Making the whole layout with SCSS, Boostrap, and JQuery for animation.
 
