@@ -48,9 +48,8 @@ However, there are few other tables for relationships.
 ### Summary for all the tables 
 
 #### Table Model:
-
-# Represents a table in the restaurant.
-# It has fields for the table number and its capacity.
+* Represents a table in the restaurant.
+* It has fields for the table number and its capacity.
 #### User Model:
 * Extends Django's built-in AbstractUser model.
 * Allows you to customize the user model if needed.
