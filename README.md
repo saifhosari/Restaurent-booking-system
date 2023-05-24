@@ -45,7 +45,42 @@ However, there are few other tables for relationships.
 
 <img width="1085" alt="Screenshot 2023-05-25 at 1 50 20 am" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/94fbdae1-7322-4440-8052-9d1e3781fc42">
 
+### Summary for all the tables 
+
+#### Table Model:
+
+# Represents a table in the restaurant.
+# It has fields for the table number and its capacity.
+#### User Model:
+* Extends Django's built-in AbstractUser model.
+* Allows you to customize the user model if needed.
+* You can add any additional fields or customizations required for your user model.
+#### Guest Model:
+
+* Represents a guest who wants to make a booking.
+* It has fields for the guest's name, email, and phone number.
+#### Booking Model:
+
+* Represents a booking made by a guest for a specific table.
+* It has fields for the table (ForeignKey to the Table model), the guest (ForeignKey to the Guest model), the booking date, start time, and end time.
+* The booking date field is set to the current date by default.
+* The start time and end time represent the time slot for the booking.
+* These models allow you to manage tables, users, guests, and bookings in your restaurant booking system. You can customize and add additional functionality to suit your specific requirements.
 
 
+# Agile Workflow 
+Agile Workflow
+An approximation of the agile workflow was used in the development of this project. The key ideas adopted were:
+
+* focus on the essential features first
+* work in small iterations
+* add extra features as time permitted
+* using GitHub's kanban board, issues, labels, and project features to organize these iterations.
+
+* the simplest authentication system built-in django is used - username and password
+* creating the simplest database models and relationships that would give a minimally functioning product. This included:
+  Adding a basic table info: ( table_name, profile(foreign key), date_created )
+  Adding a basic booking info: (registered_with(foreign key), from_time, to_time, tables (Many to Many with table)
+  Filtering for booking status will be implemented later.
 
 
