@@ -1,6 +1,7 @@
 # Restaurent-booking-system
 
-![Uploading restaurent_management.gif…]()
+![restaurent_management](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/7d9238dc-cbf2-4815-bb4c-ab5388129bf2)
+
 
 
 Welcome to our Restaurant Booking System! Easily register, login, and reserve tables for a hassle-free dining experience. Discover a diverse range of restaurants, explore their cuisines, and make informed decisions with detailed descriptions and reviews. Our user-friendly platform ensures personalized and tailored experiences, while eliminating the need for manual reservations. Whether you're planning ahead or seeking last-minute availability, our advanced system guarantees a seamless process. Join our community of food lovers and savor every moment at your favorite restaurants. Start exploring and booking today!
@@ -155,6 +156,16 @@ This is information page for restaurent.
 
 This is booking page where user will do it's booking/reservation.
 
+#### Footer 
 
+![restaurent_management](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/475b1231-8f38-4f12-99ac-63f7b0870b10)
+
+
+This is footer page for restaurent management system.
+
+#### ALERTS 
+Whenenever user tries to do the booking. it shows the alert wether the booking has been reserved or not.
+
+<img width="1331" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/6c1a15f4-2441-497d-ac31-6af203b9c702">
 
 
