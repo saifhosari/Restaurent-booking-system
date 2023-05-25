@@ -1,4 +1,8 @@
 # Restaurent-booking-system
+
+![Uploading restaurent_management.gif…]()
+
+
 Welcome to our Restaurant Booking System! Easily register, login, and reserve tables for a hassle-free dining experience. Discover a diverse range of restaurants, explore their cuisines, and make informed decisions with detailed descriptions and reviews. Our user-friendly platform ensures personalized and tailored experiences, while eliminating the need for manual reservations. Whether you're planning ahead or seeking last-minute availability, our advanced system guarantees a seamless process. Join our community of food lovers and savor every moment at your favorite restaurants. Start exploring and booking today!
 ## User End
 * User will be able to surf the website as guest as well.
@@ -126,11 +130,31 @@ Admin can fully customize bookings and manage them accordingly.
 
 #### ADD GUESTS 
 
-<img width="1202" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/8cb9b939-9de0-40f4-b1eb-8057b625f314">
+<img width="1440" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/c13b1615-2a20-4835-966a-1754af62f8ff">
+
 
 User has the ability to add guests.
 
-###### NOTE: SuperAdmin/Admin will have all the permissions. 
+###### NOTE: SuperAdmin/Admin will have all the permissions.
+
+# Website Front-End
+
+#### HOME PAGE 
+
+<img width="1439" alt="Screenshot 2023-05-25 at 7 50 26 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/19f52dcd-5543-4dc7-8530-f19d927ee170">
+
+#### Contact Page ( This page is static just for restaurent contacts ) 
+
+<img width="1440" alt="Screenshot 2023-05-25 at 8 17 07 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/ec4bff2c-34a0-42f2-9e0c-6330fb1f2d4a">
+
+This is information page for restaurent. 
+
+#### Booking Page 
+
+![image](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/c16c8511-54cf-4311-b42c-9c5e473ee926)
+
+This is booking page where user will do it's booking/reservation.
+
 
 
 
