@@ -1,4 +1,9 @@
 # Restaurent-booking-system
+
+![restaurent_management](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/7d9238dc-cbf2-4815-bb4c-ab5388129bf2)
+
+(Special Thanks to Kepwing for GIF)
+
 Welcome to our Restaurant Booking System! Easily register, login, and reserve tables for a hassle-free dining experience. Discover a diverse range of restaurants, explore their cuisines, and make informed decisions with detailed descriptions and reviews. Our user-friendly platform ensures personalized and tailored experiences, while eliminating the need for manual reservations. Whether you're planning ahead or seeking last-minute availability, our advanced system guarantees a seamless process. Join our community of food lovers and savor every moment at your favorite restaurants. Start exploring and booking today!
 ## User End
 * User will be able to surf the website as guest as well.
@@ -100,7 +105,10 @@ With the help detailed discription of commits will help and other contributors t
 
 # FEATURES 
 
-## Admin 
+## Admin Panel
+
+* Admin panel is used by a superuser that can customize the bookings, tables, guests however needed.
+* Admin has all the access rights.
 
 ### LOG-IN SCREEN
 
@@ -117,6 +125,58 @@ Admin can add the user manually.
 
 Admin can fully customize bookings and manage them accordingly.
 
+* if there are multiple admin that have access over the restauren admin panel.For this user has logout option to login with other accounts 
 
+<img width="1440" alt="Screenshot 2023-05-25 at 7 13 59 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/3d6edf60-ee6f-4c5e-b891-7a8fd952e63c">
+
+#### ADD GUESTS 
+
+<img width="1440" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/c13b1615-2a20-4835-966a-1754af62f8ff">
+
+
+User has the ability to add guests.
+
+###### NOTE: SuperAdmin/Admin will have all the permissions.
+
+# Website Front-End
+
+#### HOME PAGE 
+
+<img width="1439" alt="Screenshot 2023-05-25 at 7 50 26 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/19f52dcd-5543-4dc7-8530-f19d927ee170">
+
+#### Contact Page ( This page is static just for restaurent contacts ) 
+
+<img width="1440" alt="Screenshot 2023-05-25 at 8 17 07 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/ec4bff2c-34a0-42f2-9e0c-6330fb1f2d4a">
+
+This is information page for restaurent. 
+
+#### Booking Page 
+
+![image](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/c16c8511-54cf-4311-b42c-9c5e473ee926)
+
+This is booking page where user will do it's booking/reservation.
+
+#### Footer 
+
+![restaurent_management](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/475b1231-8f38-4f12-99ac-63f7b0870b10)
+
+
+This is footer page for restaurent management system.
+
+#### ALERTS 
+Whenenever user tries to do the booking. it shows the alert wether the booking has been reserved or not.
+
+<img width="1331" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/6c1a15f4-2441-497d-ac31-6af203b9c702">
+
+# Testing 
+
+### Code Validation
+The files models.py, settings.py,  views.py, and urls.py were validated using the python linter that was included with Gitpod's default settings from Code Institute's template. These ptoblems were reported in the PROBLEMS tab in GitPod's output panel. No errors were found in these files except the following:
+
+`Too many blank lines Flake8(E303)`
+
+which simply meant that these lines of code were too long. This does not mean the code is invalid - it is more a style. Therefore, these warnings were ignored. The following is an example of the output:
+
+<img width="504" alt="Screenshot 2023-05-25 at 8 32 45 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/a47b7271-64f1-45b4-b8a8-ccf30f2b028a">
 
 
