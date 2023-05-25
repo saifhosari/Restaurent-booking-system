@@ -209,3 +209,51 @@ The following features could be added to BookShelf in future development cycles:
 * jazzmin - Package to build admin panel.
 
 # Project Creation 
+* Develop Project Environment 
+``` pip3 install virtualenv ```
+* Create and activate environment and run the reqquirement.txt file
+``` $ pip3 install -r requirements.txt  ```
+
+* create restaurent_app and authenticantion app; add it to settings.py
+``` 
+INSTALLED_APPS = [
+    'jazzmin',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'restaurent_app',
+    'authentication',
+    
+] 
+``` 
+* Makemigrations and Migrate the models.
+``` python manage.py makemigrations 
+    python manage.py migrate
+```
+
+# Deployment to Heroku
+
+* Create heroku app
+
+  Gave it a name of restuarent_management_system
+  Added config vars
+  DATABASE_URL
+  SECRET_KEY
+  PORT
+  
+* Add Procfile to project root directory
+
+web: gunicorn bookshelf.wsgi
+before final deployment, the debug setting in settings.py was set to false for security
+# SECURITY WARNING: don't run with debug turned on in production!
+
+* The idea and code for using the Bootstrap modals and django messages was from this YouTube video by DjangoMastery.
+* The HTML code for the Modals was taken from the Bootstrap website and modified accordingly.
+* The Table of Contents was created with markdown-toc.
+* Big Credits to Chatgpt to help in understanding the concepts of Ajax and How post/get requests works.
+
+#### BIG THANKS TO dribbble.com for code snippets
+* These snippets then were modified.
