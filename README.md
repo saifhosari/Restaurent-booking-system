@@ -2,7 +2,7 @@
 
 ![restaurent_management](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/7d9238dc-cbf2-4815-bb4c-ab5388129bf2)
 
-
+(Special Thanks to Kepwing for GIF)
 
 Welcome to our Restaurant Booking System! Easily register, login, and reserve tables for a hassle-free dining experience. Discover a diverse range of restaurants, explore their cuisines, and make informed decisions with detailed descriptions and reviews. Our user-friendly platform ensures personalized and tailored experiences, while eliminating the need for manual reservations. Whether you're planning ahead or seeking last-minute availability, our advanced system guarantees a seamless process. Join our community of food lovers and savor every moment at your favorite restaurants. Start exploring and booking today!
 ## User End
@@ -167,5 +167,16 @@ This is footer page for restaurent management system.
 Whenenever user tries to do the booking. it shows the alert wether the booking has been reserved or not.
 
 <img width="1331" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/6c1a15f4-2441-497d-ac31-6af203b9c702">
+
+# Testing 
+
+### Code Validation
+The files models.py, settings.py,  views.py, and urls.py were validated using the python linter that was included with Gitpod's default settings from Code Institute's template. These ptoblems were reported in the PROBLEMS tab in GitPod's output panel. No errors were found in these files except the following:
+
+`Too many blank lines Flake8(E303)`
+
+which simply meant that these lines of code were too long. This does not mean the code is invalid - it is more a style. Therefore, these warnings were ignored. The following is an example of the output:
+
+<img width="504" alt="Screenshot 2023-05-25 at 8 32 45 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/a47b7271-64f1-45b4-b8a8-ccf30f2b028a">
 
 
