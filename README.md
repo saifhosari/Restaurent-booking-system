@@ -248,7 +248,9 @@ INSTALLED_APPS = [
 
 web: gunicorn bookshelf.wsgi
 before final deployment, the debug setting in settings.py was set to false for security
-# SECURITY WARNING: don't run with debug turned on in production!
+
+# SECURITY WARNING: 
+#### don't run with debug turned on in production!
 
 * The idea and code for using the Bootstrap modals and django messages was from this YouTube video by DjangoMastery.
 * The HTML code for the Modals was taken from the Bootstrap website and modified accordingly.
