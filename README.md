@@ -171,7 +171,7 @@ Whenenever user tries to do the booking. it shows the alert wether the booking h
 # Testing 
 
 ### Code Validation
-The files models.py, settings.py,  views.py, and urls.py were validated using the python linter that was included with Gitpod's default settings from Code Institute's template. These ptoblems were reported in the PROBLEMS tab in GitPod's output panel. No errors were found in these files except the following:
+The files models.py, settings.py,  views.py, and urls.py were validated using the python linter that was included with Gitpod's default settings from Code Institute's template. These problems were reported in the PROBLEMS tab in GitPod's output panel. No errors were found in these files except the following:
 
 `Too many blank lines Flake8(E303)`
 
@@ -180,3 +180,82 @@ which simply meant that these lines of code were too long. This does not mean th
 <img width="504" alt="Screenshot 2023-05-25 at 8 32 45 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/a47b7271-64f1-45b4-b8a8-ccf30f2b028a">
 
 
+# Unfixed Bugs
+
+An uncaught TypeError is thrown when the pages load. This does not seem to cause any performance issues. The reason that it is unfixed is that it is triggered by the jQuery method having to do with not loading at once.
+
+The Project uses some of JQuery althought for CDN for jquery works really fine and there is not performance issue.
+
+<img width="1425" alt="Screenshot 2023-05-25 at 8 37 49 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/d4ab6603-7958-4188-80b0-dc982f0b7fde">
+
+# Features to Improve and to Add
+The following features could be added to BookShelf in future development cycles:
+
+* About Page - Right now, About page has not been implemented that it needs to be in future.
+* Notification - As notifications feature needs to be improved with the sms as well.
+* Adding sign in with Google, GitHub, and other providers would be a convenient for user.
+* Adding email password recovery. This is a feature people expect in modern web applications if they forget their password.
+
+
+# Deployment
+
+## Technology used
+* gunicorn - Server to run django on heroku
+* dj3-cloudinary-storage - Allows use of Cloudinary storage to serve static files and media. This is important since django is not really designed to serve static files itself.
+* Cloudinary - Media cloud storage service to serve static files
+* Bootstrap 5 - A CSS/JavaScript library to make responsive websites.
+* JQuery - to make website dynamic.
+* Ajax - to make live POST request.
+* jazzmin - Package to build admin panel.
+
+# Project Creation 
+* Develop Project Environment 
+``` pip3 install virtualenv ```
+* Create and activate environment and run the reqquirement.txt file
+``` $ pip3 install -r requirements.txt  ```
+
+* create restaurent_app and authenticantion app; add it to settings.py
+``` 
+INSTALLED_APPS = [
+    'jazzmin',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'restaurent_app',
+    'authentication',
+    
+] 
+``` 
+* Makemigrations and Migrate the models.
+``` python manage.py makemigrations 
+    python manage.py migrate
+```
+
+# Deployment to Heroku
+
+* Create heroku app
+
+  Gave it a name of restuarent_management_system
+  Added config vars
+  DATABASE_URL
+  SECRET_KEY
+  PORT
+  
+* Add Procfile to project root directory
+
+web: gunicorn bookshelf.wsgi
+before final deployment, the debug setting in settings.py was set to false for security
+
+# SECURITY WARNING: 
+#### don't run with debug turned on in production!
+
+* The idea and code for using the Bootstrap modals and django messages was from this YouTube video by DjangoMastery.
+* The HTML code for the Modals was taken from the Bootstrap website and modified accordingly.
+* The Table of Contents was created with markdown-toc.
+* Big Credits to Chatgpt to help in understanding the concepts of Ajax and How post/get requests works.
+
+#### BIG THANKS TO dribbble.com for code snippets
+* These snippets then were modified.
