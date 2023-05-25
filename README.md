@@ -100,7 +100,10 @@ With the help detailed discription of commits will help and other contributors t
 
 # FEATURES 
 
-## Admin 
+## Admin Panel
+
+* Admin panel is used by a superuser that can customize the bookings, tables, guests however needed.
+* Admin has all the access rights.
 
 ### LOG-IN SCREEN
 
@@ -117,6 +120,17 @@ Admin can add the user manually.
 
 Admin can fully customize bookings and manage them accordingly.
 
+* if there are multiple admin that have access over the restauren admin panel.For this user has logout option to login with other accounts 
+
+<img width="1440" alt="Screenshot 2023-05-25 at 7 13 59 pm" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/3d6edf60-ee6f-4c5e-b891-7a8fd952e63c">
+
+#### ADD GUESTS 
+
+<img width="1202" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/8cb9b939-9de0-40f4-b1eb-8057b625f314">
+
+User has the ability to add guests.
+
+###### NOTE: SuperAdmin/Admin will have all the permissions. 
 
 
 
