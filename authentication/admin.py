@@ -42,6 +42,5 @@ class addProfile(admin.ModelAdmin):
     user_username.short_description = "Name"
     user_email.short_description = "Email Address"
     user_is_superuser.short_description = "Is Super User"
-# admin.site.register(Booking)
-# admin.site.register(Profile)
-# admin.site.register(Guest)
+
+

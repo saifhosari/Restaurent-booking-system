@@ -140,9 +140,6 @@ JAZZMIN_SETTINGS = {
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
     "site_brand": "Restauron",
 
-    # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "/img/hero.png",
-
     # Welcome text on the login screen
     "welcome_sign": "Welcome to the Restauron",
 
@@ -153,4 +150,6 @@ JAZZMIN_SETTINGS = {
     # If you want to use a single search field you dont need to use a list, you can use a simple string 
     "search_model": ["auth.User", "auth.Group"],
 
+    # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
+    "user_avatar": None,
 }
