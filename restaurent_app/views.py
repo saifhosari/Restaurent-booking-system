@@ -17,6 +17,11 @@ def contact_us(request):
     return render(request, template)
 
 
+def about_us(request):
+    template = 'about.html'
+    return render(request, template)
+
+
 def book_table(request):
     template = 'booking.html'
     context = {}
