@@ -14,7 +14,7 @@
               $('.alert_msg').css('display', 'none') 
               
           }, 2000)
-            location.href = "/restaurent/"
+            location.href = "/"
               console.log(response)
           },
           error: function(xhr, errmsg, err) {

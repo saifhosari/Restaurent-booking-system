@@ -20,7 +20,7 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('restaurent', include('restaurent_app.urls')),
+    path('', include('restaurent_app.urls')),
     path('restaurent', include('authentication.urls')),
 
 ]

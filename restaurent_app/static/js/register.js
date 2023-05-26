@@ -14,7 +14,7 @@
             
         }, 2000)
             console.log(response)
-            location.href = "/restaurent/"
+            location.href = ""
         },
         error: function(response) {
           // Handle the error if necessary

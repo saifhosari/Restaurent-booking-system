@@ -41,7 +41,7 @@ $('#booking_form').on('submit', function(event) {
             },
     
         error: function(xhr, errmsg, err) {
-        // Handle the error if necessary
+        // Handle the pb error if necessary
         }
     });
     });
