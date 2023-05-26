@@ -105,7 +105,9 @@ if not DEBUG:
             'PASSWORD': 'bbe80c44',
             'HOST': 'us-cdbr-east-06.cleardb.net',
             'PORT': '3306',
-        }
+        }, 'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            }
     }
 
 # Password validation
