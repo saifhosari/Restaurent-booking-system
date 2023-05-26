@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'restaurent_app',
     'authentication',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -85,16 +85,7 @@ WSGI_APPLICATION = 'restaurent.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {  
-    'default': { 
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'restaurent_system',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306', 
-    }
-}
+
 
 if not DEBUG:
     DATABASES = {
@@ -106,9 +97,20 @@ if not DEBUG:
             'HOST': 'us-cdbr-east-06.cleardb.net',
             'PORT': '3306',
         }, 'OPTIONS': {
-                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-            }
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
+else:
+    DATABASES = {
+    'default': { 
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'restaurent_system',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -171,7 +173,7 @@ JAZZMIN_SETTINGS = {
     "copyright": "Saif Hosari Ltd",
 
     # List of model admins to search from the search bar, search bar omitted if excluded
-    # If you want to use a single search field you dont need to use a list, you can use a simple string 
+    # If you want to use a single search field you dont need to use a list, you can use a simple string
     "search_model": ["auth.User", "auth.Group"],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
