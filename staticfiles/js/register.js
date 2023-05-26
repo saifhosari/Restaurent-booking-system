@@ -7,14 +7,14 @@
         type: 'POST',
         success: function(response) {
           // Display the response in the target element
-          $('.alert_msg').css('display', 'block')
-          $('.alert_msg').html(response.developer_msg) 
+          
           setTimeout(function() { 
             $('.alert_msg').css('display', 'none') 
-            
+            $('.alert_msg').css('display', 'block')
+          $('.alert_msg').html(response.developer_msg) 
+          location.href = ""
         }, 2000)
-            console.log(response)
-            location.href = ""
+            
         },
         error: function(response) {
           // Handle the error if necessary
