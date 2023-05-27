@@ -85,37 +85,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
-# if not DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.mysql',
-#             'NAME': 'd8tf0168679khf',
-#             'USER': 'vvcvliuftnuypn',
-#             'PASSWORD': '17d67c3b30cd185229c6238f2d9762a3bb20f50bf745843dad6a145354b8d0a7',
-#             'HOST': 'ec2-3-217-146-37.compute-1.amazonaws.com',
-#             'PORT': '5432',
-#         }, 'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-#         }
-#     }
+if not DEBUG:
+    import dj_database_url
+    db_from_env = dj_database_url.config(conn_max_age=600)
+    DATABASES['default'].update(db_from_env)
 
-    # DATABASES = {
-    # 'default': { 
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'restaurent_system',
-    #     'USER': 'root',
-    #     'PASSWORD': '',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306',
-    # }
-    # }
-
-# Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {

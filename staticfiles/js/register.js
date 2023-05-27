@@ -12,7 +12,7 @@
             $('.alert_msg').css('display', 'none') 
             $('.alert_msg').css('display', 'block')
           $('.alert_msg').html(response.developer_msg) 
-          location.href = ""
+          location.href = "/"
         }, 2000)
             
         },
