@@ -46,7 +46,7 @@ def register(request):
 # login user
 def login_user(request):
     context = {}
-
+    response = 0
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -56,13 +56,17 @@ def login_user(request):
             login_user_obj = authenticate(request=request, username=username, password=password)
             if login_user_obj is not None:
                 login(request, login_user_obj) 
+                context['username'] = login_user_obj.username
                 context['developer_msg'] = f'{login_user_obj.username} successfully logged in.'
-                return JsonResponse(context)
+                response = 1
+                # return JsonResponse(context)
             
         except User.DoesNotExist as e:
             print("Exception #", e)
             context['developer_msg'] = f'User with {username} does not exists.'
-            return JsonResponse(context)
+            response = 2
+    context['response'] = response
+            # return JsonResponse(context)
     return JsonResponse(context)
 
 

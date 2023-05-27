@@ -10,9 +10,7 @@
         if(response.response == 1 || response.response == 3){
           $('.alert_msg').css('display', 'block')
           $('.alert_msg').html(response.developer_msg)
-          console.log("Inside")
         }else{
-
              setTimeout(function() { 
             location.href = "/"
           }, 2000)

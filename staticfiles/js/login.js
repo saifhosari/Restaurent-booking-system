@@ -8,22 +8,38 @@
           type: 'POST',
           success: function(response) {
             // Display the response in the target element
-            $('.alert_msg').css('display', 'block')
-            $('.alert_msg').html(response.developer_msg) 
-            setTimeout(function() { 
-              $('.alert_msg').css('display', 'none') 
-              
-          }, 2000)
-            location.href = "/"
-              console.log(response)
+            if (response.response == 1){
+              $('.alert_msg').css('display', 'block')
+              Swal.fire(
+                `Logged in as`,
+                `${response.username}`,
+                'success'
+              )
+        
+              setTimeout(function() { 
+                location.href = "/"
+              }, 2000)
+            }else if (response.response == 0){
+              $('.alert_msg').css('display', 'block')
+              $('.alert_msg').html("Username or Password is incorrect")
+            }else{
+              $('.alert_msg').css('display', 'block')
+              $('.alert_msg').html(response.developer_msg) 
+            }
+            // $('.alert_msg').css('display', 'block')
+            // $('.alert_msg').html(response.developer_msg) 
+            
+            
+            
+              // console.log(response)
           },
-          error: function(xhr, errmsg, err) {
+          error: function(response) {
             // Handle the error if necessary
+            console.log(response)
             $('.alert_msg').css('display', 'block')
-            $('.alert_msg').html(response.developer_msg) 
+             
             setTimeout(function() { 
               $('.alert_msg').css('display', 'none') 
-              
           }, 2000)
           }
         });
