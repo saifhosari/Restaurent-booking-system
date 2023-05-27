@@ -9,12 +9,6 @@
           success: function(response) {
             // Display the response in the target element
             if (response.response == 1){
-
-              // Swal.fire(
-              //   `Logged in as`,
-              //   `${response.username}`,
-              //   'success'
-              // )
               let timerInterval
             Swal.fire({
               title:`Logged in as ${response.username}`,
@@ -34,20 +28,14 @@
               /* Read more about handling dismissals below */
               location.href="/"
             })
-            
-            }else if (response.response == 0){
-              $('.alert_msg').css('display', 'block')
-              $('.alert_msg').html("Username or Password is incorrect")
+
             }else{
               $('.alert_msg').css('display', 'block')
-              $('.alert_msg').html(response.developer_msg) 
-            }
-            // $('.alert_msg').css('display', 'block')
-            // $('.alert_msg').html(response.developer_msg) 
-            
-            
-            
-              // console.log(response)
+              $('.alert_msg').html("Invalid Email or Password") 
+              setInterval(function () {
+                $('.alert_msg').css('display', 'none')
+            }, 5000);
+          }
           },
           error: function(response) {
             // Handle the error if necessary
