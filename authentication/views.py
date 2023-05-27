@@ -11,10 +11,10 @@ def register(request):
     context = {}
     if request.method == 'POST':
         try:
-            user_name = request.POST.get('username')
-            password = request.POST.get('password')
+            user_name = request.POST.get('r_username')
+            password = request.POST.get('r_password')
             email = request.POST.get('email')
-            confirm_password = request.POST.get('confirm_password')
+            confirm_password = request.POST.get('r_confirm_password')
             try:
                 user_exists = User.objects.get(username=user_name)
                 if user_exists:

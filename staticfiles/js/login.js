@@ -11,11 +11,12 @@
             $('.alert_msg').css('display', 'block')
 
             setTimeout(function() { 
+              console.log("inside")
               $('.alert_msg').css('display', 'none') 
               $('.alert_msg').html(response.developer_msg) 
               location.href = "/"
           }, 5000)
-            
+        
           },
           error: function(xhr, errmsg, err) {
             // Handle the error if necessary
