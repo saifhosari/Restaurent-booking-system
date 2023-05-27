@@ -19,15 +19,19 @@ def register(request):
         try:
 
             user_exists = User.objects.get(username=user_name)
+           
             if user_exists:
                 context['developer_msg'] = f'User name {user_exists.username} already exists'
                 response = 1
         except User.DoesNotExist:
             
             if password == confirm_password:
-                user_obj = User.objects.create(username=user_name, email=email, password=password)
-                user_obj.save()
-                user_profile = Profile.objects.create(user=user_obj, confirm_password=confirm_password)
+                # user_obj = User.objects.create(username=user_name, email=email, password=password)
+                new_user, created = User.objects.get_or_create(username=user_name, is_staff=True, email=email)
+                new_user.set_password(password)
+                new_user.save()
+                # user_obj.save()
+                user_profile = Profile.objects.create(user=new_user, confirm_password=confirm_password)
                 user_profile.save()
                 context['developer_msg'] = 'Successfully Registered'
                 response = 2
@@ -50,16 +54,16 @@ def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        
         try:
             login_user_obj = User.objects.get(username=username)
             login_user_obj = authenticate(request=request, username=username, password=password)
             if login_user_obj is not None:
-                login(request, login_user_obj) 
+                login(request, login_user_obj)
                 context['username'] = login_user_obj.username
                 context['developer_msg'] = f'{login_user_obj.username} successfully logged in.'
+                context['response'] = 1
                 response = 1
-                # return JsonResponse(context)
+                return JsonResponse(context)
             
         except User.DoesNotExist as e:
             print("Exception #", e)
