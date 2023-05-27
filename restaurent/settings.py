@@ -91,11 +91,11 @@ if not DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'heroku_8bce21e6d70f88b',
-            'USER': 'b9bcc654301756',
-            'PASSWORD': 'bbe80c44',
-            'HOST': 'us-cdbr-east-06.cleardb.net',
-            'PORT': '3306',
+            'NAME': 'd8tf0168679khf',
+            'USER': 'vvcvliuftnuypn',
+            'PASSWORD': '17d67c3b30cd185229c6238f2d9762a3bb20f50bf745843dad6a145354b8d0a7',
+            'HOST': 'ec2-3-217-146-37.compute-1.amazonaws.com',
+            'PORT': '5432',
         }, 'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
