@@ -62,7 +62,7 @@
             
         
         <div class="modal-footer">
-          <button type="submit" class="btn btn-secondary" data-dismiss="modal">Sign in</button>
+          <button type="submit" class="btn btn-secondary" >Sign in</button>
         </div>
     </form>
     </div>
@@ -111,7 +111,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-secondary" data-dismiss="modal">Register</button>
+          <button type="submit" class="btn btn-secondary" >Register</button>
         </div>
     </form>
       </div>
@@ -150,7 +150,7 @@
                   {% endif %}         
                   </div>
         </nav>
-        <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <!-- <div class="container-xxl py-5 bg-dark hero-header mb-5">
             <div class="container my-5 py-5">
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6 text-center text-lg-start">
@@ -162,20 +162,11 @@
                         <img class="img-fluid" src="{% static 'img/hero.png' %}" alt="">
                     </div>
                 </div>
-            </div>
+            </div> -->
+            
         
             
-            <main class="container welcome_container">
-                <p id="welcome">Welcome 👋 </p>
-                <section class="animation">
-                  <div class="first"><div>{% if not request.user.is_anonymous %} {{ request.user }} {% else%} Guest {% endif %} </div></div>
-                  <div class="second"><div>Lovely to meet you</div></div>
-                  <div class="third"><div>Book a table?</div></div>
-                </section>
-              </main>
-              
-        </div>
-        
+         
 
 <!-- End navigation-->
 {% block content%}
@@ -256,9 +247,6 @@
     <script src="{% static 'js/login.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
 
-    <script>
-      
-    </script>
     <!-- Template Javascript -->
     
     {%block external_js %}
@@ -267,21 +255,23 @@
     {% endblock %} 
     <script>
 
-var login_url ="{% url 'login_user' %}"
+    var login_url ="{% url 'login_user' %}"
     var register_url = "{% url 'register' %}"
 
-    // $('#login_modal').on('click', function(){
-    //     $('#exampleModal').modal('show');
-    // })
-    // $('#register_modal').on('click', function(){
-    //     $('#exampleModal1').modal('show');
-    // })
-    // $("#close_login").on('click', function(){
-    //     $('#exampleModal').modal('toggle');
-    // })
-    // $("#close_register").on('click', function(){
-    //     $('#exampleModal1').modal('toggle');
-    // })
+    $('#login_modal').on('click', function(){
+        $('#exampleModal').modal('show');
+    })
+    $('#register_modal').on('click', function(){
+        $('#exampleModal1').modal('show');
+    })
+    $("#close_login").on('click', function(){
+        $('.alert_msg').css('display', 'none')
+        $('#exampleModal').modal('toggle');
+    })
+    $("#close_register").on('click', function(){
+        $('.alert_msg').css('display', 'none')
+        $('#exampleModal1').modal('toggle');
+    })
     </script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 
 
 <!-- Navbar & Hero End -->
-
+{% include "animation.html" %}
 
 <!-- Service Start -->
 <div class="container-xxl py-5">
@@ -223,22 +223,6 @@
 
 {% block external_js%} 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
-<script>
-    var login_url ="{% url 'login_user' %}"
-    var register_url = "{% url 'register' %}"
 
-    $('#login_modal').on('click', function(){
-        $('#exampleModal').modal('show');
-    })
-    $('#register_modal').on('click', function(){
-        $('#exampleModal1').modal('show');
-    })
-    $("#close_login").on('click', function(){
-        $('#exampleModal').modal('toggle');
-    })
-    $("#close_register").on('click', function(){
-        $('#exampleModal1').modal('toggle');
-    })
-</script>
 {% endblock %}
 {% endblock %}

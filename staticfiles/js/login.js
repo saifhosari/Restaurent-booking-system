@@ -9,24 +9,22 @@
           success: function(response) {
             // Display the response in the target element
             $('.alert_msg').css('display', 'block')
-
+            $('.alert_msg').html(response.developer_msg) 
             setTimeout(function() { 
-              console.log("inside")
               $('.alert_msg').css('display', 'none') 
-              $('.alert_msg').html(response.developer_msg) 
-              location.href = "/"
-          }, 5000)
-        
+              
+          }, 2000)
+            location.href = "/"
+              console.log(response)
           },
           error: function(xhr, errmsg, err) {
             // Handle the error if necessary
-            console.log("in erro")
             $('.alert_msg').css('display', 'block')
             $('.alert_msg').html(response.developer_msg) 
             setTimeout(function() { 
               $('.alert_msg').css('display', 'none') 
               
-          }, 5000)
+          }, 2000)
           }
         });
       });

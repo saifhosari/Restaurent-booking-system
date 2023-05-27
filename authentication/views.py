@@ -10,27 +10,35 @@ from django.shortcuts import redirect, render
 def register(request):
     context = {}
     if request.method == 'POST':
+        print("I am here")
+    try:
+        user_name = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        confirm_password = request.POST.get('confirm_password')
         try:
-            user_name = request.POST.get('r_username')
-            password = request.POST.get('r_password')
-            email = request.POST.get('email')
-            confirm_password = request.POST.get('r_confirm_password')
-            try:
-                user_exists = User.objects.get(username=user_name)
-                if user_exists:
-                    context['developer_msg'] = f'User name {user_exists.username} already exists'
-            except User.DoesNotExist:
-                if password == confirm_password:
-                    user_obj = User.objects.create_user(username=user_name, email=email, password=password)
-                    user_profile = Profile.objects.create(user=user_obj, confirm_password=confirm_password)
-                    user_profile.save()
-                    context['developer_msg'] = 'Successfully Registered'
-                else:
-                    context['developer_msg'] = 'Your Password does not match'
-                    return JsonResponse(context)
-        except Exception as e:
-            print("Exception#", e)
-            context['developer_msg'] = 'Something went wrong'
+
+            user_exists = User.objects.get(username=user_name)
+            if user_exists:
+                context['developer_msg'] = f'User name {user_exists.username} already exists'
+                response = 1
+        except User.DoesNotExist:
+            
+            if password == confirm_password:
+                user_obj = User.objects.create(username=user_name, email=email, password=password)
+                user_obj.save()
+                user_profile = Profile.objects.create(user=user_obj, confirm_password=confirm_password)
+                user_profile.save()
+                context['developer_msg'] = 'Successfully Registered'
+                response = 2
+            else:
+                context['developer_msg'] = 'Your Password does not match'
+                response = 3
+        context['response'] = response
+        # return JsonResponse(context)
+    except Exception as e:
+        print("Exception#", e)
+        context['developer_msg'] = 'Something went wrong'
 
     return JsonResponse(context)
 
