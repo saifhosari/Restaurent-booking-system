@@ -9,16 +9,32 @@
           success: function(response) {
             // Display the response in the target element
             if (response.response == 1){
-              $('.alert_msg').css('display', 'block')
-              Swal.fire(
-                `Logged in as`,
-                `${response.username}`,
-                'success'
-              )
-        
-              setTimeout(function() { 
-                location.href = "/"
-              }, 2000)
+
+              // Swal.fire(
+              //   `Logged in as`,
+              //   `${response.username}`,
+              //   'success'
+              // )
+              let timerInterval
+            Swal.fire({
+              title:`Logged in as ${response.username}`,
+              timer: 1000,
+              timerProgressBar: true,
+              didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                  b.textContent = Swal.getTimerLeft()
+                }, 100)
+              },
+              willClose: () => {
+                clearInterval(timerInterval)
+              }
+            }).then((result) => {
+              /* Read more about handling dismissals below */
+              location.href="/"
+            })
+            
             }else if (response.response == 0){
               $('.alert_msg').css('display', 'block')
               $('.alert_msg').html("Username or Password is incorrect")
