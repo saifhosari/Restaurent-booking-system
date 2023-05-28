@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% block head%} {% endblock %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +28,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    {% block head%} {% endblock %}
+    
 
     <title>Document</title>
 
@@ -134,6 +135,9 @@
                     <a href="{% url 'home_page' %}" class="nav-item nav-link active">Home</a>
                     <a href="{% url 'about_us' %}" class="nav-item nav-link">About</a>
                     <a href="{% url 'contact_us' %}" class="nav-item nav-link">Contact</a>
+                    {% if not request.user.is_anonymous %}
+                    <a href="{% url 'bookings' %}" class="nav-item nav-link">Booking List</a>
+                    {% endif %}
                 </div>
                 
                 <a href="{% url 'booking' %}" class="btn btn-primary py-2 px-4">Book A Table</a>

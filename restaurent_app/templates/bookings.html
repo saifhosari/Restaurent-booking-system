@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+  {% block content %}
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+</div>
+{% if all_bookings %}
+<div class="container bookings_table color-black">
+
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+                <th scope="col" >ID</th>
+              <th scope="col">Reservation User</th>
+              <th scope="col">Booked_by</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in all_bookings %} 
+            <tr>
+                <th data-id="{{ booking.id }}" value="{{ booking.id }}">{{ booking.id }}</th>
+                <th scope="row" value="{{ booking.name }}">{{ booking.name }}</th>
+                <td value="{{ booking.registered_with }}"> {{ booking.registered_with }}</td>
+                <td value="{{ booking.created_at }} ">{{ booking.created_at }} </td>
+
+                <td>
+                <button type="button" class="btn btn-danger" id="delete"><i class="far fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            {% endfor %}
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <h5>You have not booked a table</h5>
+  {% endif %}
+{% endblock %}
+{%block external_js %}
+<script>
+  $(document).ready(function() {
+    $('#delete').click(function() {
+        var bookingId = $(this).closest('tr').find('th[data-id]').data('id');
+      var deleteUrl = `/bookings/delete/${bookingId}`
+      // Send the booking ID to the server using AJAX
+      console.log(bookingId)
+      $.ajax({
+        url: deleteUrl, // Replace with your server URL
+        method: 'POST', // Use appropriate HTTP method
+        data: { bookingId: bookingId , 'csrfmiddlewaretoken': '{{ csrf_token }}',}, // Pass the booking ID as data to the server
+        success: function(response) {
+          if (response.response == 1){
+            Swal.fire(
+                    `DELETED`,
+                    'success'
+                  )
+                  location.href = location.href
+          }else{
+            Swal.fire(
+                    `Something went wrong`,
+                    'danger'
+                  )
+          }
+          // Handle the server response if needed
+          console.log('Booking with ID ' + bookingId + ' deleted successfully.');
+        },
+        error: function(xhr, status, error) {
+          // Handle any errors that occur during the AJAX request
+          console.log('Error deleting booking with ID ' + bookingId + ': ' + error);
+        }
+      });
+    });
+  });
+</script> 
+{% endblock %}

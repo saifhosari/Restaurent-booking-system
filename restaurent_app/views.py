@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from authentication.models import Table, Guest, Booking
 from django.contrib.auth.models import User
@@ -29,6 +29,7 @@ def book_table(request):
     if request.method == 'POST':
         try:
             user = User.objects.get(username=request.user.username)
+            name = request.POST.get('reservation_user')
             table_name = request.POST.get('table_name')
             check_in = request.POST.get('check_in')
             time_in = datetime.strptime(request.POST.get('time_in'), '%I:%M %p')
@@ -53,7 +54,7 @@ def book_table(request):
                 table_obj = Table.objects.create(profile=user, table_name=table_name)
                 table_obj.save()
                 table_obj.guests.add(*guests)
-                book_table = Booking.objects.create(from_time=time_in, to_time=time_out, registered_with=user, check_in=check_in)
+                book_table = Booking.objects.create(from_time=time_in, to_time=time_out, registered_with=user, check_in=check_in, name=name)
                 book_table.save()
                 book_table.table.add(table_obj)
 
@@ -71,4 +72,38 @@ def book_table(request):
             return JsonResponse(context)
         
     return render(request, template)
+
+
+# def get_all_bookings_list(request):
+
+#     print("Inside the request")
+#     context = {}
+#     user_obj = User.objects.get(username=request.user.username)
+#     print("=== User Objects ===")
+#     print(user_obj)
+
+#     all_bookings = Booking.objects.filter(registered_with=user_obj)
+#     context['all_bookings'] = all_bookings
+#     return JsonResponse(context)
+
+
+def bookings(request):
+    context = {}
+    print(request.user)
+    user_obj = User.objects.get(username=request.user.username)
+    all_bookings = Booking.objects.filter(registered_with=user_obj)
+    context['all_bookings'] = all_bookings
+    return render(request, 'bookings.html', context)
+
+def delete_booking(request, pk):
+    print(pk)
+    context = {}
+    try:
+        booking_obj = Booking.objects.get(id=pk)
+        booking_obj.delete()
+        context['response'] = 1
+    except:
+        context['response'] = 2  
+
+    return JsonResponse(context)
 

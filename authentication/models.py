@@ -25,6 +25,7 @@ class Table(models.Model):
 
 class Booking(models.Model):
     table = models.ManyToManyField(Table)
+    name = models.TextField(null=True)
     registered_with = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     from_time = models.DateTimeField(default=datetime.datetime.now())

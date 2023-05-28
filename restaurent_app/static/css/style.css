@@ -728,14 +728,20 @@ table th {
 
 thead th,
 tbody th {
-  color: #fff;
+  color: black;
 }
 
 tbody td {
   font-weight: 500;
-  color: rgba(255,255,255,.65);
+  color: black;
 }
 
 .card {
   border-radius: .5rem;
 }
+
+
+/*
+TABLE STYLES 
+*/
+
