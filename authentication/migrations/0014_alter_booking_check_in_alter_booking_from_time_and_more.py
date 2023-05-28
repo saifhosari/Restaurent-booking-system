@@ -12,21 +12,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='booking',
-            name='check_in',
-            field=models.DateTimeField(default=datetime.datetime(2023, 5, 28, 11, 9, 45, 810198)),
-        ),
-        migrations.AlterField(
-            model_name='booking',
-            name='from_time',
-            field=models.DateTimeField(default=datetime.datetime(2023, 5, 28, 11, 9, 45, 810166)),
-        ),
-        migrations.AlterField(
-            model_name='booking',
-            name='to_time',
-            field=models.DateTimeField(default=datetime.datetime(2023, 5, 28, 11, 9, 45, 810189)),
-        ),
-        migrations.AlterField(
             model_name='guest',
             name='guest_phone',
             field=models.TextField(null=True),
