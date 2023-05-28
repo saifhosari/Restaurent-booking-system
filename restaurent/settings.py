@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$#$*wfm(@!!unz^3t=#%s(sag_()m8%(%ngy2a1qmlpj5n7oc6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['restaurent.herokuapp.com', '127.0.0.1']
 
@@ -79,18 +79,18 @@ WSGI_APPLICATION = 'restaurent.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 if not DEBUG:
     import dj_database_url
     db_from_env = dj_database_url.config(conn_max_age=600)
     DATABASES['default'].update(db_from_env)
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
