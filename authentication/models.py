@@ -10,7 +10,7 @@ class Profile(models.Model):
 
 class Guest(models.Model):
     guest_name = models.CharField(max_length=20, null=True, blank=True)
-    guest_phone = models.IntegerField(max_length=20, null=True, blank=True)
+    guest_phone = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
