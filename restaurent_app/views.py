@@ -74,19 +74,6 @@ def book_table(request):
     return render(request, template)
 
 
-# def get_all_bookings_list(request):
-
-#     print("Inside the request")
-#     context = {}
-#     user_obj = User.objects.get(username=request.user.username)
-#     print("=== User Objects ===")
-#     print(user_obj)
-
-#     all_bookings = Booking.objects.filter(registered_with=user_obj)
-#     context['all_bookings'] = all_bookings
-#     return JsonResponse(context)
-
-
 def bookings(request):
     context = {}
     print(request.user)
