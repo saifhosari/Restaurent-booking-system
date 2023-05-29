@@ -49,7 +49,7 @@ def book_table(request):
 
     
                 # Check if the user has any tables booked
-                if_table_booked = Booking.objects.filter(from_time=time_in, to_time=time_out, check_in=check_in, registered_with=request.user)
+                if_table_booked = Booking.objects.filter(from_time=time_in, to_time=time_out, check_in=check_in)
                 tables_booked = list(Table.objects.filter(booking__in=if_table_booked).values_list('table_name'))
 
                 if any(table_name in name[0] for name in tables_booked):
