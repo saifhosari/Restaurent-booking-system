@@ -155,6 +155,11 @@ This is information page for restaurent.
 ![image](https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/c16c8511-54cf-4311-b42c-9c5e473ee926)
 
 This is booking page where user will do it's booking/reservation.
+### Bookings List 
+
+<img width="1440" alt="image" src="https://github.com/saifhosari/Restaurent-booking-system/assets/88719461/c0cec412-571a-483a-92d7-b7bd74a79199">
+
+User can easily see their recent bookings that he has made and interact with. User can delete the reservation by clicking delete button against the record.
 
 #### Footer 
 
