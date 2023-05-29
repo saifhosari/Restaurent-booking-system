@@ -266,4 +266,3 @@ before final deployment, the debug setting in settings.py was set to false for s
 * These snippets then were modified.
 
 
-### PLEASE DO MAKE US SECURE BY SHARING THE FEEDBACK AND BUGS TO RESOLVE.
