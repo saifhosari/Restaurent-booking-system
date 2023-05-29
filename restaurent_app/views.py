@@ -47,10 +47,15 @@ def book_table(request):
                     for name, phone in guest_list[0].items():
                         guests.append(Guest.objects.create(guest_name=name, guest_phone=phone))
 
-                if_table_booked = Booking.objects.filter(from_time=time_in, to_time=time_out, check_in=check_in)
-                if if_table_booked:
-                    context['developer_msg'] = 'Table is already booked at a time, Please choose another time.'
+    
+                # Check if the user has any tables booked
+                if_table_booked = Booking.objects.filter(from_time=time_in, to_time=time_out, check_in=check_in, registered_with=request.user)
+                tables_booked = list(Table.objects.filter(booking__in=if_table_booked).values_list('table_name'))
+
+                if any(table_name in name[0] for name in tables_booked):
+                    context['developer_msg'] = 'Please choose another table it is already booked by you'
                     return JsonResponse(context)
+                
                 table_obj = Table.objects.create(profile=user, table_name=table_name)
                 table_obj.save()
                 table_obj.guests.add(*guests)
@@ -66,7 +71,7 @@ def book_table(request):
                 return JsonResponse(context)
             except Exception as e:    
                 return JsonResponse(context)
-
+             
         except Exception as e:
             context['developer_msg'] = 'You are not logged in!'
             return JsonResponse(context)

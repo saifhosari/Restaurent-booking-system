@@ -16,7 +16,7 @@
                 <th scope="col" >ID</th>
               <th scope="col">Reservation User</th>
               <th scope="col">Booked_by</th>
-              <th scope="col">Date</th>
+              <th scope="col">Check in (Day)</th>>
             </tr>
           </thead>
           <tbody>
@@ -25,7 +25,8 @@
                 <th data-id="{{ booking.id }}" value="{{ booking.id }}">{{ booking.id }}</th>
                 <th scope="row" value="{{ booking.name }}">{{ booking.name }}</th>
                 <td value="{{ booking.registered_with }}"> {{ booking.registered_with }}</td>
-                <td value="{{ booking.created_at }} ">{{ booking.created_at }} </td>
+                <td  value="{{ booking.created_at }} ">{{ booking.check_in|date:"F j, Y" }}</td>
+                
 
                 <td>
                 <button type="button" class="btn btn-danger" id="delete"><i class="far fa-trash-alt"></i></button>
@@ -77,5 +78,6 @@
       });
     });
   });
+ 
 </script> 
 {% endblock %}
